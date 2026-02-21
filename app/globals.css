@@ -1,26 +1,165 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #050510;
+  --color-background-secondary: #0a0a1a;
+  --color-accent: #6C63FF;
+  --color-accent-cyan: #00D4FF;
+  --color-text-primary: #F0F0FF;
+  --color-text-secondary: #8888AA;
+  --color-glass-bg: rgba(255, 255, 255, 0.04);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #050510;
+  color: #F0F0FF;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom cursor */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050510;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #6C63FF, #00D4FF);
+  border-radius: 3px;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #6C63FF 0%, #00D4FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-animated {
+  background: linear-gradient(270deg, #6C63FF, #00D4FF, #6C63FF);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-hover:hover {
+  border-color: rgba(108, 99, 255, 0.3);
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.1), 0 0 60px rgba(0, 212, 255, 0.05);
+}
+
+/* Gradient button */
+.btn-gradient {
+  background: linear-gradient(135deg, #6C63FF 0%, #00D4FF 100%);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #00D4FF 0%, #6C63FF 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-gradient:hover::before {
+  opacity: 1;
+}
+
+.btn-gradient:hover {
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Ghost button */
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: #6C63FF;
+  background: rgba(108, 99, 255, 0.1);
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(108, 99, 255, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(108, 99, 255, 0.6), 0 0 50px rgba(0, 212, 255, 0.2); }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0.5; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Timeline connector line glow */
+.timeline-line {
+  background: linear-gradient(90deg, #6C63FF, #00D4FF);
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+
+/* Calendly embed container */
+.calendly-inline-widget {
+  min-width: 280px;
+  height: 630px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(108, 99, 255, 0.3);
+  color: #F0F0FF;
 }
