@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
 import Services from "@/components/sections/Services";
+import Statement from "@/components/sections/Statement";
 import Projets from "@/components/sections/Projets";
 import Processus from "@/components/sections/Processus";
 import Contact from "@/components/sections/Contact";
@@ -33,6 +34,7 @@ export default function Home() {
         <Hero />
         <Stats />
         <Services />
+        <Statement />
         <Projets />
         <Processus />
         <Contact />

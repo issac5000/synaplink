@@ -18,7 +18,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 py-12 sm:py-14">
+    <footer id="footer-anchor" className="relative border-t border-white/10 py-12 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="glass rounded-[30px] p-6 sm:p-8">
           <div className="grid md:grid-cols-3 gap-8 items-center">
