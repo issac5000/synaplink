@@ -1,105 +1,81 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, PenTool, Code2, Rocket } from "lucide-react";
+import { Code2, PenTool, Phone, Rocket } from "lucide-react";
 
 const steps = [
   {
     icon: Phone,
-    number: "1",
-    title: "Découverte",
-    description: "Appel gratuit, brief complet, analyse de vos besoins et objectifs.",
+    number: "01",
+    title: "Workshop",
+    description: "Brief business, cadrage du besoin et objectifs de conversion.",
   },
   {
     icon: PenTool,
-    number: "2",
-    title: "Architecture",
-    description: "Choix tech, plan détaillé, estimation transparente.",
+    number: "02",
+    title: "Direction",
+    description: "UI forte, architecture claire et priorites produit.",
   },
   {
     icon: Code2,
-    number: "3",
-    title: "Construction",
-    description: "Développement itératif avec reporting régulier et démos.",
+    number: "03",
+    title: "Build sprint",
+    description: "Developpement iteratif avec demos concretes chaque semaine.",
   },
   {
     icon: Rocket,
-    number: "4",
-    title: "Lancement",
-    description: "Déploiement, tests, suivi post-lancement et support.",
+    number: "04",
+    title: "Go live",
+    description: "Mise en prod, analytics, optimisation continue.",
   },
 ];
 
 export default function Processus() {
   return (
-    <section
-      id="processus"
-      className="relative py-24 lg:py-32 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-background-secondary/30" />
+    <section id="processus" className="relative py-24 lg:py-32 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
+        <div className="absolute inset-x-4 sm:inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] mb-4">
-            De votre idée à votre produit{" "}
-            <span className="gradient-text">en 4 étapes</span>
+          <div className="section-kicker mb-5">Comment on travaille</div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] tracking-[-0.005em] mb-4">
+            Un parcours simple,
+            <br />
+            un <span className="gradient-text-animated">resultat</span> net
           </h2>
         </motion.div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Connecting line (desktop) */}
-          <div className="hidden lg:block absolute top-24 left-[12.5%] right-[12.5%] h-[2px]">
-            <motion.div
-              className="h-full timeline-line rounded-full"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              style={{ transformOrigin: "left" }}
-            />
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+          <div className="space-y-6 sm:space-y-4">
             {steps.map((step, i) => (
               <motion.div
-                key={i}
-                className="relative text-center"
-                initial={{ opacity: 0, y: 30 }}
+                key={step.number}
+                className="relative grid sm:grid-cols-[56px_140px_1fr] gap-4 sm:gap-6 items-start py-2"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.42, delay: i * 0.08 }}
               >
-                {/* Icon circle */}
-                <motion.div
-                  className="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center mb-6 group"
-                  whileInView={{
-                    boxShadow: [
-                      "0 0 0 rgba(108, 99, 255, 0)",
-                      "0 0 30px rgba(108, 99, 255, 0.3)",
-                      "0 0 15px rgba(108, 99, 255, 0.1)",
-                    ],
-                  }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: i * 0.3 }}
-                >
-                  <step.icon className="w-7 h-7 text-accent" />
-                  {/* Number badge */}
-                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center font-[family-name:var(--font-space-grotesk)]">
-                    {step.number}
-                  </span>
-                </motion.div>
-
-                <h3 className="text-xl font-semibold font-[family-name:var(--font-space-grotesk)] text-text-primary mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-text-secondary leading-relaxed max-w-[250px] mx-auto">
+                {i < steps.length - 1 && (
+                  <div className="hidden sm:block absolute left-5 top-[52px] h-[calc(100%-18px)] w-px bg-gradient-to-b from-white/20 to-white/5" />
+                )}
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 border border-accent/25 flex items-center justify-center relative z-10">
+                  <step.icon className="w-5 h-5 text-accent" />
+                </div>
+                <div className="pt-1">
+                  <p className="text-xs tracking-[0.12em] text-text-secondary font-[family-name:var(--font-jetbrains-mono)]">
+                    ETAPE {step.number}
+                  </p>
+                  <h3 className="text-xl font-semibold font-[family-name:var(--font-space-grotesk)] text-text-primary">
+                    {step.title}
+                  </h3>
+                </div>
+                <p className="text-sm sm:text-base text-text-secondary leading-relaxed pt-1 max-w-2xl">
                   {step.description}
                 </p>
               </motion.div>

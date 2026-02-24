@@ -107,12 +107,12 @@ export default function DevisForm() {
         {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
           <div
             key={i}
-            className="flex-1 h-1 rounded-full overflow-hidden bg-white/5"
+            className="flex-1 h-1 rounded-full overflow-hidden bg-white/10"
           >
             <motion.div
               className="h-full rounded-full"
               style={{
-                background: "linear-gradient(90deg, #6C63FF, #00D4FF)",
+                background: "linear-gradient(90deg, #38bdf8, #7c3aed, #a855f7)",
               }}
               initial={false}
               animate={{ width: i < step ? "100%" : "0%" }}
@@ -133,10 +133,10 @@ export default function DevisForm() {
               {typeProjetOptions.map((option) => (
                 <label
                   key={option}
-                  className={`flex items-center gap-3 p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
+                  className={`flex items-center gap-3 p-4 rounded-2xl border transition-all duration-200 cursor-pointer ${
                     currentTypeProjet === option
                       ? "border-accent bg-accent/10"
-                      : "border-white/10 hover:border-white/20 bg-white/[0.02]"
+                      : "border-white/10 hover:border-white/10 bg-white/[0.03]"
                   }`}
                 >
                   <input
@@ -178,10 +178,10 @@ export default function DevisForm() {
               {budgetOptions.map((option) => (
                 <label
                   key={option}
-                  className={`flex items-center gap-3 p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
+                  className={`flex items-center gap-3 p-4 rounded-2xl border transition-all duration-200 cursor-pointer ${
                     currentBudget === option
                       ? "border-accent bg-accent/10"
-                      : "border-white/10 hover:border-white/20 bg-white/[0.02]"
+                      : "border-white/10 hover:border-white/10 bg-white/[0.03]"
                   }`}
                 >
                   <input
@@ -220,10 +220,10 @@ export default function DevisForm() {
               {delaiOptions.map((option) => (
                 <label
                   key={option}
-                  className={`flex items-center gap-3 p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
+                  className={`flex items-center gap-3 p-4 rounded-2xl border transition-all duration-200 cursor-pointer ${
                     currentDelai === option
                       ? "border-accent bg-accent/10"
-                      : "border-white/10 hover:border-white/20 bg-white/[0.02]"
+                      : "border-white/10 hover:border-white/10 bg-white/[0.03]"
                   }`}
                 >
                   <input
@@ -263,7 +263,7 @@ export default function DevisForm() {
                 <input
                   type="text"
                   placeholder="Prénom & Nom *"
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 transition-all text-sm"
+                  className="w-full px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 transition-all text-sm"
                   {...register("nom")}
                 />
                 {errors.nom && (
@@ -274,7 +274,7 @@ export default function DevisForm() {
                 <input
                   type="email"
                   placeholder="Email *"
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 transition-all text-sm"
+                  className="w-full px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 transition-all text-sm"
                   {...register("email")}
                 />
                 {errors.email && (
@@ -285,7 +285,7 @@ export default function DevisForm() {
                 <input
                   type="tel"
                   placeholder="Numéro WhatsApp (optionnel)"
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 transition-all text-sm"
+                  className="w-full px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 transition-all text-sm"
                   {...register("whatsapp")}
                 />
               </div>
@@ -293,7 +293,7 @@ export default function DevisForm() {
                 <textarea
                   placeholder="Décrivez votre projet en quelques lignes *"
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 transition-all text-sm resize-none"
+                  className="w-full px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 transition-all text-sm resize-none"
                   {...register("description")}
                 />
                 {errors.description && (
@@ -329,7 +329,7 @@ export default function DevisForm() {
             className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
               canProceed()
                 ? "btn-gradient text-white"
-                : "bg-white/5 text-text-secondary cursor-not-allowed"
+                : "bg-white/10 text-text-secondary cursor-not-allowed"
             }`}
             disabled={!canProceed()}
           >

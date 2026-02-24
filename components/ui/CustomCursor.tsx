@@ -69,10 +69,10 @@ export default function CustomCursor() {
         transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
         style={{
           background: isHovering
-            ? "rgba(108, 99, 255, 0.15)"
-            : "rgba(108, 99, 255, 0.8)",
-          border: isHovering ? "1.5px solid rgba(108, 99, 255, 0.5)" : "none",
-          boxShadow: `0 0 ${isHovering ? 20 : 10}px rgba(108, 99, 255, 0.4)`,
+            ? "rgba(124, 58, 237, 0.14)"
+            : "rgba(124, 58, 237, 0.78)",
+          border: isHovering ? "1.5px solid rgba(56, 189, 248, 0.45)" : "none",
+          boxShadow: `0 0 ${isHovering ? 16 : 10}px rgba(124, 58, 237, 0.28)`,
         }}
       />
     </>

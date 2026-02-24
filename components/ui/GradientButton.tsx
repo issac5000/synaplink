@@ -22,10 +22,10 @@ export default function GradientButton({
   disabled = false,
 }: GradientButtonProps) {
   const baseClasses =
-    "relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 will-change-transform";
+    "relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 will-change-transform";
   const variantClasses =
     variant === "gradient"
-      ? "btn-gradient text-white"
+      ? "btn-gradient text-white shadow-[0_6px_18px_rgba(0,0,0,0.25)]"
       : "btn-ghost text-text-primary";
 
   if (href) {

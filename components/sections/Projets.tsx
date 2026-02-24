@@ -1,214 +1,159 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import GlassCard from "@/components/ui/GlassCard";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
-const projets = [
+const featuredProject = {
+  name: "Synap'Kids",
+  category: "Application mobile · IA parentale",
+  pitch:
+    "Compagnon numerique pour les 1000 premiers jours de l enfant, avec suivi WHO, assistant IA et experience parentale unifiee.",
+  highlight: "322k+ lignes de code",
+  result: "Prototype complet + architecture production-ready",
+  stack: ["React Native", "Supabase", "GPT-4.1", "pgvector", "n8n"],
+};
+
+const sideProjects = [
   {
-    number: "01",
-    name: "Synap'Kids",
-    category: "Application mobile · IA parentale",
-    description:
-      "Compagnon numérique pour les 1000 premiers jours de l'enfant. Suivi de croissance WHO, assistant IA (Ped'IA), communauté de parents, notifications intelligentes. Plus de 322 000 lignes de code. Projet en cours de lancement.",
-    stack: ["React Native", "Supabase", "GPT-4.1", "pgvector", "n8n"],
-    accentColor: "#6C63FF",
-  },
-  {
-    number: "02",
     name: "Menu3D",
     category: "SaaS B2B · Restauration",
-    description:
-      "Plateforme SaaS permettant aux restaurants de créer des menus en 3D et réalité augmentée via Apple Object Capture. De la visualisation produit à l'AR en passant par QR codes dynamiques.",
-    stack: ["Next.js", "Supabase", "Apple Object Capture", "Three.js", "Stripe"],
-    accentColor: "#00D4FF",
+    pitch: "Creation de menus 3D et AR pour restaurants avec QR dynamiques.",
+    result: "MVP lance + pipeline de scan produit industrialise",
+    stack: ["Next.js", "Three.js", "Stripe", "Object Capture"],
+    accent: "#38bdf8",
   },
   {
-    number: "03",
-    name: "Personnalité Comparée",
+    name: "Personnalite Comparee",
     category: "Application web · IA comportementale",
-    description:
-      "Outil d'analyse et de comparaison de personnalités basé sur l'intelligence artificielle. Profils psychologiques détaillés, compatibilité, insights comportementaux.",
+    pitch: "Analyse de personnalites et compatibilites par IA avec rapports actionnables.",
+    result: "Version beta exploitable pour coaching et recrutement",
     stack: ["Next.js", "Claude AI", "Supabase", "Tailwind"],
-    accentColor: "#FF63A5",
+    accent: "#a855f7",
   },
 ];
 
 export default function Projets() {
-  const [current, setCurrent] = useState(0);
-
-  const next = () => setCurrent((c) => (c + 1) % projets.length);
-  const prev = () => setCurrent((c) => (c - 1 + projets.length) % projets.length);
-
   return (
     <section id="projets" className="relative py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] mb-4">
-            Projets construits{" "}
-            <span className="gradient-text">de A à Z</span>
+          <div className="section-kicker mb-5">Etudes de cas</div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] tracking-[-0.005em] max-w-3xl">
+            Des produits <span className="gradient-text-animated">construits</span>
+            <br />
+            avec une logique <span className="gradient-text-animated">business</span>
           </h2>
-          <p className="text-text-secondary text-lg max-w-xl mx-auto">
-            Pas des maquettes. Des produits réels, en production, utilisés
-            aujourd&apos;hui.
-          </p>
         </motion.div>
 
-        {/* Desktop: 3 columns */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-          {projets.map((projet, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-            >
-              <GlassCard className="h-full relative overflow-hidden group">
-                {/* Watermark number */}
-                <span
-                  className="absolute -top-4 -right-2 text-[8rem] font-bold font-[family-name:var(--font-space-grotesk)] leading-none opacity-[0.03] select-none"
-                  style={{ color: projet.accentColor }}
-                >
-                  {projet.number}
-                </span>
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-7 lg:gap-8">
+          <motion.article
+            className="glass rounded-[32px] p-6 sm:p-8 relative overflow-hidden"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="absolute -right-16 -top-20 w-56 h-56 rounded-full blur-3xl bg-white/[0.03]" />
+            <div className="relative">
+              <p className="inline-flex text-xs font-medium px-3 py-1 rounded-full font-[family-name:var(--font-jetbrains-mono)] mb-4 bg-accent/15 text-accent">
+                Projet phare · {featuredProject.category}
+              </p>
+              <h3 className="text-3xl sm:text-4xl font-semibold font-[family-name:var(--font-space-grotesk)] text-text-primary leading-tight">
+                {featuredProject.name}
+              </h3>
+              <p className="mt-4 text-text-secondary leading-relaxed max-w-3xl">
+                {featuredProject.pitch}
+              </p>
 
-                <div className="relative">
-                  {/* Category badge */}
-                  <span
-                    className="inline-block text-xs font-medium px-3 py-1 rounded-full mb-4 font-[family-name:var(--font-jetbrains-mono)]"
-                    style={{
-                      background: `${projet.accentColor}15`,
-                      color: projet.accentColor,
-                    }}
-                  >
-                    {projet.category}
-                  </span>
-
-                  {/* Name */}
-                  <h3 className="text-2xl font-bold font-[family-name:var(--font-space-grotesk)] text-text-primary mb-4">
-                    {projet.name}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-text-secondary leading-relaxed mb-6">
-                    {projet.description}
+              <div className="mt-7 grid sm:grid-cols-2 gap-4">
+                <div className="rounded-2xl border border-white/10 bg-white/10 px-4 py-4">
+                  <p className="text-xs uppercase tracking-[0.1em] text-text-secondary font-[family-name:var(--font-jetbrains-mono)]">
+                    Impact
                   </p>
+                  <p className="mt-2 text-lg font-semibold text-text-primary">
+                    {featuredProject.highlight}
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/10 px-4 py-4">
+                  <p className="text-xs uppercase tracking-[0.1em] text-text-secondary font-[family-name:var(--font-jetbrains-mono)]">
+                    Livraison
+                  </p>
+                  <p className="mt-2 text-lg font-semibold text-text-primary">
+                    {featuredProject.result}
+                  </p>
+                </div>
+              </div>
 
-                  {/* Stack */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {projet.stack.map((tech) => (
+              <div className="mt-6 flex flex-wrap gap-2">
+                {featuredProject.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs px-3 py-1 rounded-full border border-white/10 bg-white/10 text-text-secondary font-[family-name:var(--font-jetbrains-mono)]"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href="#contact"
+                className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-text-primary hover:text-accent transition-colors"
+              >
+                Voir la strategie appliquee
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.article>
+
+          <div className="space-y-5">
+            {sideProjects.map((project, i) => (
+              <motion.article
+                key={project.name}
+                className="border border-white/10 rounded-[24px] bg-white/10 px-5 py-5 sm:px-6 sm:py-6 relative overflow-hidden"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.45, delay: i * 0.07 }}
+              >
+                <div
+                  className="absolute -right-10 -top-10 w-32 h-32 rounded-full blur-3xl opacity-35"
+                  style={{ backgroundColor: `${project.accent}65` }}
+                />
+                <div className="relative">
+                  <p
+                    className="inline-flex text-xs font-medium px-3 py-1 rounded-full font-[family-name:var(--font-jetbrains-mono)] mb-3"
+                    style={{ background: `${project.accent}18`, color: project.accent }}
+                  >
+                    {project.category}
+                  </p>
+                  <h3 className="text-2xl font-semibold font-[family-name:var(--font-space-grotesk)] text-text-primary">
+                    {project.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-text-secondary leading-relaxed">
+                    {project.pitch}
+                  </p>
+                  <p className="mt-3 text-sm text-text-primary font-medium">
+                    {project.result}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.stack.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs px-3 py-1 rounded-full glass text-text-secondary font-[family-name:var(--font-jetbrains-mono)]"
+                        className="text-xs px-3 py-1 rounded-full border border-white/10 bg-white/10 text-text-secondary font-[family-name:var(--font-jetbrains-mono)]"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-
-                  {/* CTA */}
-                  <button
-                    className="flex items-center gap-2 text-sm font-medium transition-colors duration-300 group/btn"
-                    style={{ color: projet.accentColor }}
-                  >
-                    En savoir plus
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
                 </div>
-              </GlassCard>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Mobile: carousel */}
-        <div className="lg:hidden">
-          <div className="relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.3 }}
-              >
-                <GlassCard className="relative overflow-hidden">
-                  <span
-                    className="absolute -top-4 -right-2 text-[8rem] font-bold font-[family-name:var(--font-space-grotesk)] leading-none opacity-[0.03] select-none"
-                    style={{ color: projets[current].accentColor }}
-                  >
-                    {projets[current].number}
-                  </span>
-                  <div className="relative">
-                    <span
-                      className="inline-block text-xs font-medium px-3 py-1 rounded-full mb-4 font-[family-name:var(--font-jetbrains-mono)]"
-                      style={{
-                        background: `${projets[current].accentColor}15`,
-                        color: projets[current].accentColor,
-                      }}
-                    >
-                      {projets[current].category}
-                    </span>
-                    <h3 className="text-2xl font-bold font-[family-name:var(--font-space-grotesk)] text-text-primary mb-4">
-                      {projets[current].name}
-                    </h3>
-                    <p className="text-sm text-text-secondary leading-relaxed mb-6">
-                      {projets[current].description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {projets[current].stack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="text-xs px-3 py-1 rounded-full glass text-text-secondary font-[family-name:var(--font-jetbrains-mono)]"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </GlassCard>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation */}
-            <div className="flex items-center justify-center gap-4 mt-6">
-              <button
-                onClick={prev}
-                className="w-10 h-10 rounded-full glass flex items-center justify-center text-text-secondary hover:text-accent transition-colors"
-                aria-label="Projet précédent"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <div className="flex gap-2">
-                {projets.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      i === current
-                        ? "bg-accent w-6"
-                        : "bg-text-secondary/30"
-                    }`}
-                    aria-label={`Voir projet ${i + 1}`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={next}
-                className="w-10 h-10 rounded-full glass flex items-center justify-center text-text-secondary hover:text-accent transition-colors"
-                aria-label="Projet suivant"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+              </motion.article>
+            ))}
           </div>
         </div>
       </div>

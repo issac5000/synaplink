@@ -22,7 +22,7 @@ export default function ParticlesBackground() {
     if (!ctx) return;
 
     let particles: Particle[] = [];
-    let mouse = { x: -1000, y: -1000 };
+    const mouse = { x: -1000, y: -1000 };
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -30,15 +30,15 @@ export default function ParticlesBackground() {
     };
 
     const createParticles = () => {
-      const count = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 120);
+      const count = Math.min(Math.floor((canvas.width * canvas.height) / 10000), 180);
       particles = [];
       for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          radius: Math.random() * 1.5 + 0.5,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+          radius: Math.random() * 2.2 + 0.6,
         });
       }
     };
@@ -46,18 +46,18 @@ export default function ParticlesBackground() {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw connections
+      // Draw constellation lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 150) {
-            const opacity = (1 - dist / 150) * 0.15;
+          if (dist < 160) {
+            const opacity = (1 - dist / 160) * 0.8;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(108, 99, 255, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.5})`;
+            ctx.lineWidth = 0.7;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
@@ -69,32 +69,32 @@ export default function ParticlesBackground() {
         const mdy = particles[i].y - mouse.y;
         const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
         if (mDist < 200) {
-          const opacity = (1 - mDist / 200) * 0.3;
+          const opacity = (1 - mDist / 200) * 0.5;
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`;
-          ctx.lineWidth = 0.8;
+          ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.6})`;
+          ctx.lineWidth = 0.6;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.stroke();
         }
       }
 
-      // Draw particles
+      // Draw stars
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(108, 99, 255, 0.6)";
+        ctx.fillStyle = `rgba(255, 255, 255, ${0.85 + p.radius * 0.1})`;
         ctx.fill();
 
-        // Glow
+        // Soft glow
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
         const gradient = ctx.createRadialGradient(
           p.x, p.y, 0,
           p.x, p.y, p.radius * 3
         );
-        gradient.addColorStop(0, "rgba(108, 99, 255, 0.15)");
-        gradient.addColorStop(1, "rgba(108, 99, 255, 0)");
+        gradient.addColorStop(0, "rgba(255, 255, 255, 0.25)");
+        gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
         ctx.fillStyle = gradient;
         ctx.fill();
       }
@@ -140,20 +140,22 @@ export default function ParticlesBackground() {
       mouse.y = -1000;
     };
 
+    const handleResize = () => {
+      resize();
+      createParticles();
+    };
+
     resize();
     createParticles();
     animate();
 
-    window.addEventListener("resize", () => {
-      resize();
-      createParticles();
-    });
+    window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       cancelAnimationFrame(animationRef.current);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
     };
@@ -163,7 +165,7 @@ export default function ParticlesBackground() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ opacity: 0.7 }}
+      style={{ opacity: 1 }}
     />
   );
 }
