@@ -14,7 +14,14 @@ const benefits = [
 
 export default function Contact() {
   const calendlyUrl =
-    process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/PLACEHOLDER";
+    process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/synaplink";
+
+  const openCalendly = () => {
+    const w = window as unknown as { Calendly?: { initPopupWidget: (opts: { url: string }) => void } };
+    if (w.Calendly) {
+      w.Calendly.initPopupWidget({ url: `${calendlyUrl}?locale=fr` });
+    }
+  };
 
   return (
     <section id="contact" className="relative py-24 lg:py-32">
@@ -60,10 +67,13 @@ export default function Contact() {
                 <div className="rounded-3xl overflow-hidden bg-white/10 border border-white/10">
                   <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
                     <Calendar className="w-12 h-12 text-accent/45 mb-4" />
-                    <p className="text-text-secondary text-sm mb-6">
-                      Widget Calendly integre ici
+                    <p className="text-text-secondary text-sm mb-2">
+                      Appel 30 min ou reunion 45 min via Google Meet
                     </p>
-                    <GradientButton href={calendlyUrl} className="!py-3 !px-6 !text-sm">
+                    <p className="text-text-secondary/60 text-xs mb-6">
+                      Choisissez le format qui vous convient
+                    </p>
+                    <GradientButton onClick={openCalendly} className="!py-3 !px-6 !text-sm">
                       Reserver un creneau
                     </GradientButton>
                   </div>
