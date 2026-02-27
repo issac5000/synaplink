@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Sparkles, Layers, Brain } from "lucide-react";
+import { Sparkles, Layers, Brain, ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
@@ -18,6 +19,7 @@ const projects = [
     accent: "#e8913a",
     gradient: "from-[#e8913a]/20 via-[#1b4f7a]/10 to-transparent",
     icon: Sparkles,
+    url: "https://synapkids.com",
   },
   {
     name: "Menu3D",
@@ -31,6 +33,7 @@ const projects = [
     gradient: "from-[#38bdf8]/15 via-[#38bdf8]/5 to-transparent",
     icon: Layers,
     invertLogo: true,
+    url: "https://menu3d.net",
   },
   {
     name: "Personnalite Comparee",
@@ -43,6 +46,7 @@ const projects = [
     accent: "#a855f7",
     gradient: "from-[#a855f7]/15 via-[#c084fc]/5 to-transparent",
     icon: Brain,
+    url: "https://personnalitecomparee.com",
   },
 ];
 
@@ -71,9 +75,15 @@ export default function Projets() {
         {/* Projects grid — 3 equal columns */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           {projects.map((project, i) => (
-            <motion.article
+            <Link
               key={project.name}
-              className="group relative rounded-[40px] overflow-hidden glass-liquid"
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+            <motion.article
+              className="group relative rounded-[40px] overflow-hidden glass-liquid h-full cursor-pointer"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -155,6 +165,14 @@ export default function Projets() {
                   ))}
                 </div>
 
+                {/* Visit arrow */}
+                <div
+                  className="absolute top-6 right-6 w-8 h-8 rounded-full flex items-center justify-center border border-white/10 bg-white/5 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+                  style={{ color: project.accent }}
+                >
+                  <ArrowUpRight className="w-4 h-4" />
+                </div>
+
                 {/* Watermark logo */}
                 <div className="absolute -bottom-10 -right-10 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none">
                   <Image
@@ -168,6 +186,7 @@ export default function Projets() {
                 </div>
               </div>
             </motion.article>
+            </Link>
           ))}
         </div>
       </div>

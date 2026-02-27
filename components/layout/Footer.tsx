@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 
 const footerLinks = [
@@ -39,6 +39,24 @@ export default function Footer() {
               <p className="text-sm text-text-secondary mt-2">
                 Studio produit IA, web et automatisation
               </p>
+              <div className="mt-4 space-y-2 text-sm text-text-secondary">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
+                  <span>13, Rue de la Pépinière<br />5000 Namur</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 shrink-0 text-accent" />
+                  <a href="tel:+32465395308" className="hover:text-text-primary transition-colors">
+                    +32 465/39.53.08
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 shrink-0 text-accent" />
+                  <a href="mailto:info@synaplink.be" className="hover:text-text-primary transition-colors">
+                    info@synaplink.be
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-6 justify-center">
