@@ -379,7 +379,7 @@ export default function Chatbot() {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Votre message..."
                   disabled={isLoading}
-                  className="flex-1 bg-transparent py-2 text-sm text-white/90 placeholder:text-white/30 focus:outline-none disabled:opacity-50"
+                  className="flex-1 bg-transparent py-2 text-base sm:text-sm text-white/90 placeholder:text-white/30 focus:outline-none disabled:opacity-50"
                 />
                 <button
                   type="submit"
