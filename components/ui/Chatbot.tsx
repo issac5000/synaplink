@@ -43,7 +43,11 @@ export default function Chatbot() {
 
   useEffect(() => {
     if (isOpen && inputRef.current) {
-      inputRef.current.focus();
+      // Delay focus to avoid iOS zoom, and only on non-touch devices
+      const isTouch = window.matchMedia("(pointer: coarse)").matches;
+      if (!isTouch) {
+        setTimeout(() => inputRef.current?.focus(), 300);
+      }
     }
   }, [isOpen]);
 
@@ -200,6 +204,20 @@ export default function Chatbot() {
         </AnimatePresence>
         </motion.button>
       </div>
+
+      {/* Backdrop blur on mobile */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-[55] bg-black/40 backdrop-blur-sm sm:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Chat modal */}
       <AnimatePresence>
