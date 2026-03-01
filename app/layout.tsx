@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     "intelligence artificielle",
     "marketing digital",
   ],
+  metadataBase: new URL("https://synaplink.be"),
   openGraph: {
     title: "Synap'Link — Agence IA & Numérique Francophone",
     description:
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Synap'Link",
     images: [
       {
-        url: "/og-image.png",
+        url: "/logomarket.png",
         width: 1200,
         height: 630,
         alt: "Synap'Link — Agence IA & Numérique",
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
     title: "Synap'Link — Agence IA & Numérique Francophone",
     description:
       "Développement web & app, agents IA, automatisation et marketing digital.",
-    images: ["/og-image.png"],
+    images: ["/logomarket.png"],
   },
   robots: {
     index: true,
