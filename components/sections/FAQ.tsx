@@ -70,7 +70,7 @@ export default function FAQ() {
           </h2>
         </motion.div>
 
-        <div className="space-y-3">
+        <div className="divide-y divide-white/[0.08] border-t border-b border-white/[0.08]">
           {faqs.map((faq, i) => (
             <motion.div
               key={i}
@@ -81,13 +81,9 @@ export default function FAQ() {
             >
               <button
                 onClick={() => toggle(i)}
-                className={`w-full flex items-center justify-between gap-4 px-6 py-5 rounded-2xl text-left transition-all duration-300 ${
-                  openIndex === i
-                    ? "bg-white/[0.06] border border-white/[0.1]"
-                    : "bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.05]"
-                }`}
+                className="w-full flex items-center justify-between gap-4 py-5 text-left transition-all duration-300"
               >
-                <span className="text-sm sm:text-base font-medium text-text-primary font-[family-name:var(--font-space-grotesk)]">
+                <span className={`text-sm sm:text-base font-medium font-[family-name:var(--font-space-grotesk)] transition-colors duration-300 ${openIndex === i ? "text-accent" : "text-text-primary"}`}>
                   {faq.question}
                 </span>
                 <motion.div
@@ -107,7 +103,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="px-6 pt-3 pb-5 text-sm text-text-secondary leading-relaxed">
+                    <p className="pb-5 text-sm text-text-secondary leading-relaxed">
                       {faq.answer}
                     </p>
                   </motion.div>

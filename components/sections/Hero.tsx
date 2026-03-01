@@ -21,19 +21,19 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-end">
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
           <div>
             <motion.h1
-              className="text-5xl sm:text-6xl lg:text-8xl font-bold font-[family-name:var(--font-space-grotesk)] leading-[1.02] tracking-[-0.005em] mb-6"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold font-[family-name:var(--font-space-grotesk)] leading-[1.05] tracking-[-0.005em] mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
             >
-              <span className="text-text-primary">Votre idée.</span>
+              <span className="text-text-primary">Nous donnons vie</span>
               <br />
-              <span className="gradient-text-animated">Notre produit.</span>
+              <span className="text-text-primary">à vos projets les</span>
               <br />
-              <span className="text-text-primary">Vos résultats.</span>
+              <span className="gradient-text-animated">plus ambitieux</span>
             </motion.h1>
 
             <motion.p
@@ -60,13 +60,13 @@ export default function Hero() {
           </div>
 
           <motion.div
-            className="rounded-[56px] relative overflow-hidden perspective-1000"
+            className="rounded-3xl sm:rounded-[56px] relative overflow-hidden perspective-1000"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             whileHover={{ y: -18, scale: 1.05 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            <div className="card-3d rounded-[50px] overflow-hidden border border-white/10 h-[360px] sm:h-[420px] lg:h-[470px] relative shadow-[0_24px_48px_rgba(0,0,0,0.28)] ring-1 ring-white/5 backdrop-blur-sm bg-white/[0.03]">
+            <div className="card-3d rounded-2xl sm:rounded-[50px] overflow-hidden border border-white/10 h-[360px] sm:h-[420px] lg:h-[470px] relative shadow-[0_24px_48px_rgba(0,0,0,0.28)] ring-1 ring-white/5 backdrop-blur-sm bg-white/[0.03]">
               <div className="absolute inset-0 bg-gradient-to-br from-[#121212] via-[#2a2a2a] to-[#0b0b0b]" />
               <div className="absolute inset-0 opacity-35" style={{ background: "radial-gradient(circle at 22% 20%, rgba(255,255,255,0.18), transparent 44%), radial-gradient(circle at 82% 78%, rgba(255,255,255,0.12), transparent 48%)" }} />
               <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.25) 0.42px, transparent 0.42px)", backgroundSize: "3px 3px" }} />

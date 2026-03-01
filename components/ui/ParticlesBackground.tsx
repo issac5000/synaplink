@@ -30,7 +30,7 @@ export default function ParticlesBackground() {
     };
 
     const createParticles = () => {
-      const count = Math.min(Math.floor((canvas.width * canvas.height) / 10000), 180);
+      const count = Math.min(Math.floor((canvas.width * canvas.height) / 14000), 120);
       particles = [];
       for (let i = 0; i < count; i++) {
         particles.push({
@@ -53,8 +53,8 @@ export default function ParticlesBackground() {
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 160) {
-            const opacity = (1 - dist / 160) * 0.8;
+          if (dist < 135) {
+            const opacity = (1 - dist / 135) * 0.7;
             ctx.beginPath();
             ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.5})`;
             ctx.lineWidth = 0.7;

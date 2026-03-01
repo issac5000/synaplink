@@ -301,3 +301,34 @@ body {
 .card-3d-inner > * {
   transform: translateZ(10px);
 }
+
+/* Chatbot markdown */
+.chatbot-markdown h1,
+.chatbot-markdown h2,
+.chatbot-markdown h3 {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 600;
+  margin-top: 0.75em;
+  margin-bottom: 0.25em;
+  color: #ececec;
+}
+.chatbot-markdown h1 { font-size: 1.1em; }
+.chatbot-markdown h2 { font-size: 1.05em; }
+.chatbot-markdown h3 { font-size: 1em; }
+.chatbot-markdown strong { color: #ececec; }
+.chatbot-markdown ul,
+.chatbot-markdown ol {
+  padding-left: 1.25em;
+  margin: 0.4em 0;
+}
+.chatbot-markdown li { margin: 0.15em 0; }
+.chatbot-markdown p { margin: 0.35em 0; }
+.chatbot-markdown p:first-child { margin-top: 0; }
+.chatbot-markdown p:last-child { margin-bottom: 0; }
+.chatbot-markdown code {
+  font-family: var(--font-mono), monospace;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}

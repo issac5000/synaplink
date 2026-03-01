@@ -59,14 +59,14 @@ export default function Projets() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <motion.div
-          className="mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <div className="section-kicker mb-5">Etudes de cas</div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] tracking-[-0.005em] max-w-3xl">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] tracking-[-0.005em] max-w-3xl mx-auto">
             Nos projets les plus{" "}
             <span className="gradient-text-animated">ambitieux</span>
           </h2>
@@ -83,7 +83,7 @@ export default function Projets() {
               className="block"
             >
             <motion.article
-              className="group relative rounded-[40px] overflow-hidden glass-liquid h-full cursor-pointer"
+              className="group relative rounded-3xl sm:rounded-[40px] overflow-hidden glass-liquid h-full cursor-pointer"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -103,7 +103,7 @@ export default function Projets() {
               />
 
               {/* Content */}
-              <div className="relative p-6 sm:p-7 flex flex-col h-full min-h-[380px]">
+              <div className="relative p-5 sm:p-7 flex flex-col h-full min-h-[320px] sm:min-h-[380px]">
                 {/* Category pill */}
                 <div className="mb-5">
                   <span

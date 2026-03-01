@@ -32,6 +32,7 @@ export default function GradientButton({
     return (
       <a
         href={href}
+        onClick={onClick}
         className={`${baseClasses} ${variantClasses} ${className}`}
       >
         <span className="relative z-10">{children}</span>

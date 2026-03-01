@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, Sparkles, X } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import Image from "next/image";
 import GradientButton from "@/components/ui/GradientButton";
 
 const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Projets", href: "#projets" },
-  { label: "À propos", href: "#processus" },
+  { label: "Processus", href: "#processus" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -93,11 +94,31 @@ export default function Navbar() {
             </div>
 
             <button
-              className="lg:hidden text-text-primary p-2"
+              className="lg:hidden relative w-10 h-10 flex items-center justify-center"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              <div className="w-6 h-5 relative flex flex-col justify-between">
+                <span
+                  className={`block h-[2px] w-full bg-text-primary rounded-full transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)] origin-center ${
+                    mobileOpen
+                      ? "translate-y-[9px] rotate-45"
+                      : "translate-y-0 rotate-0"
+                  }`}
+                />
+                <span
+                  className={`block h-[2px] w-full bg-text-primary rounded-full transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)] ${
+                    mobileOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"
+                  }`}
+                />
+                <span
+                  className={`block h-[2px] w-full bg-text-primary rounded-full transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)] origin-center ${
+                    mobileOpen
+                      ? "-translate-y-[9px] -rotate-45"
+                      : "translate-y-0 rotate-0"
+                  }`}
+                />
+              </div>
             </button>
           </div>
         </div>

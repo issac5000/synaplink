@@ -56,6 +56,7 @@ export default function Footer() {
                     info@synaplink.be
                   </a>
                 </div>
+                <p className="text-xs text-text-secondary/60 mt-1">TVA : BE 1034.436.506</p>
               </div>
             </div>
 
@@ -92,10 +93,10 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Synap&apos;Link. Tous droits réservés.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-xs text-text-secondary hover:text-text-primary transition-colors">
+              <a href="/mentions-legales" className="text-xs text-text-secondary hover:text-text-primary transition-colors">
                 Mentions légales
               </a>
-              <a href="#" className="text-xs text-text-secondary hover:text-text-primary transition-colors">
+              <a href="/politique-de-confidentialite" className="text-xs text-text-secondary hover:text-text-primary transition-colors">
                 Politique de confidentialité
               </a>
             </div>
