@@ -296,8 +296,8 @@ export default function Services() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.45, delay: i * 0.05 }}
               >
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mt-0.5">
-                  <service.icon className="w-5 h-5 text-accent" />
+                <div className="w-10 h-10 rounded-xl bg-white/10 border border-accent/25 flex items-center justify-center mt-0.5">
+                  <service.icon className="w-5 h-5 text-yellow-400" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-semibold font-[family-name:var(--font-space-grotesk)] text-text-primary">

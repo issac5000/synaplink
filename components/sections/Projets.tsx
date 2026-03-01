@@ -14,7 +14,7 @@ const projects = [
     watermarkSize: 245,
     pitch:
       "Compagnon numerique pour les 1000 premiers jours de l enfant, avec suivi WHO, assistant IA et experience parentale unifiee.",
-    result: "Prototype complet + architecture production-ready",
+    result: "Suivi de croissance OMS, assistant IA et communaute parentale",
     stack: ["React Native", "Supabase", "GPT-4.1", "pgvector", "n8n"],
     accent: "#e8913a",
     gradient: "from-[#e8913a]/20 via-[#1b4f7a]/10 to-transparent",
@@ -27,7 +27,7 @@ const projects = [
     logo: "/menu3dlogo.png",
     pitch:
       "Creation de menus 3D et AR pour restaurants avec QR dynamiques.",
-    result: "MVP lance + pipeline de scan produit industrialise",
+    result: "Menus 3D, QR dynamiques et pipeline de scan industrialise",
     stack: ["Next.js", "Three.js", "Stripe", "Object Capture"],
     accent: "#38bdf8",
     gradient: "from-[#38bdf8]/15 via-[#38bdf8]/5 to-transparent",
@@ -41,7 +41,7 @@ const projects = [
     logo: "/pclogo.png",
     pitch:
       "Analyse de personnalites et compatibilites par IA avec rapports actionnables.",
-    result: "Version beta exploitable pour coaching et recrutement",
+    result: "Analyse de compatibilite pour coaching et recrutement",
     stack: ["Next.js", "Claude AI", "Supabase", "Tailwind"],
     accent: "#a855f7",
     gradient: "from-[#a855f7]/15 via-[#c084fc]/5 to-transparent",

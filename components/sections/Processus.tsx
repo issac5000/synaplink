@@ -82,7 +82,7 @@ export default function Processus() {
                     <div className="hidden sm:block absolute left-5 top-[52px] h-[calc(100%-18px)] w-px bg-gradient-to-b from-white/20 to-white/5" />
                   )}
                   <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 border border-accent/25 flex items-center justify-center relative z-10">
-                    <step.icon className="w-5 h-5 text-accent" />
+                    <step.icon className="w-5 h-5 text-yellow-400" />
                   </div>
                   <div className="pt-1">
                     <p className="text-xs tracking-[0.12em] text-text-secondary font-[family-name:var(--font-jetbrains-mono)]">

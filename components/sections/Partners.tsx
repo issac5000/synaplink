@@ -64,7 +64,7 @@ export default function Partners() {
                 key={`${name}-${i}`}
                 className="flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/[0.06] bg-white/[0.02] shrink-0"
               >
-                <div className="w-2 h-2 rounded-full bg-accent/40" />
+                <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
                 <span className="text-sm text-text-secondary/70 font-medium whitespace-nowrap">
                   {name}
                 </span>

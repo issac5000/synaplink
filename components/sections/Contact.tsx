@@ -98,7 +98,7 @@ export default function Contact() {
                 <div className="mt-6 space-y-3">
                   {benefits.map((item) => (
                     <div key={item.text} className="flex items-center gap-3 text-sm text-text-secondary">
-                      <item.icon className="w-4 h-4 text-accent" />
+                      <item.icon className="w-4 h-4 text-yellow-400" />
                       {item.text}
                     </div>
                   ))}
