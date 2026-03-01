@@ -12,7 +12,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section id="stats" className="relative py-20 lg:py-24">
+    <section id="stats" className="relative py-20 lg:py-24 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="border-y border-transparent py-10 relative">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
