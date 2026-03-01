@@ -1,0 +1,108 @@
+{
+  "name": "Synaplink — Nouvelle demande de devis",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "devis-synaplink",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": false
+        }
+      },
+      "id": "a1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 340],
+      "webhookId": "devis-synaplink"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json.body;\n\nconst whatsappLine = data.whatsapp\n  ? `<tr>\n      <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:13px;\">WhatsApp</td>\n      <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;font-weight:600;text-align:right;\">${data.whatsapp}</td>\n    </tr>`\n  : '';\n\nconst html = `\n<div style=\"font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;background:#1a1a2e;border-radius:16px;overflow:hidden;\">\n  <div style=\"background:linear-gradient(135deg,#7c3aed,#38bdf8);padding:32px;text-align:center;\">\n    <h1 style=\"margin:0;font-size:22px;color:white;font-weight:700;\">Nouvelle demande de devis</h1>\n    <p style=\"margin:8px 0 0;color:rgba(255,255,255,0.8);font-size:13px;\">via synaplink.fr</p>\n  </div>\n  <div style=\"padding:32px;\">\n    <table style=\"width:100%;border-collapse:collapse;\">\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:13px;\">Nom</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;font-weight:600;text-align:right;\">${data.nom}</td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:13px;\">Email</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;font-weight:600;text-align:right;\"><a href=\"mailto:${data.email}\" style=\"color:#38bdf8;text-decoration:none;\">${data.email}</a></td>\n      </tr>\n      ${whatsappLine}\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:13px;\">Type de projet</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;font-weight:600;text-align:right;\">${data.typeProjet}</td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:13px;\">Budget</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;font-weight:600;text-align:right;\">${data.budget}</td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:13px;\">Delai</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;font-weight:600;text-align:right;\">${data.delai}</td>\n      </tr>\n    </table>\n    <div style=\"margin-top:24px;padding:16px;background:rgba(255,255,255,0.05);border-radius:12px;border:1px solid rgba(255,255,255,0.08);\">\n      <p style=\"margin:0 0 8px;color:#a0a0a0;font-size:13px;\">Description du projet</p>\n      <p style=\"margin:0;color:white;font-size:14px;line-height:1.6;\">${data.description}</p>\n    </div>\n    <div style=\"margin-top:24px;padding:12px 16px;background:rgba(124,58,237,0.15);border-radius:10px;border:1px solid rgba(124,58,237,0.25);\">\n      <p style=\"margin:0;color:#c4b5fd;font-size:12px;\">Source: ${data.source || 'site-synaplink'} — ${data.timestamp || new Date().toISOString()}</p>\n    </div>\n  </div>\n</div>\n`;\n\nreturn [{\n  json: {\n    subject: `Nouveau devis — ${data.typeProjet} — ${data.nom}`,\n    html,\n    nom: data.nom,\n    email: data.email,\n    whatsapp: data.whatsapp || '',\n    typeProjet: data.typeProjet,\n    budget: data.budget,\n    delai: data.delai,\n    description: data.description\n  }\n}];"
+      },
+      "id": "a1b2c3d4-0001-4000-8000-000000000002",
+      "name": "Format Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 340]
+    },
+    {
+      "parameters": {
+        "fromEmail": "contact@synaplink.fr",
+        "toEmail": "contact@synaplink.fr",
+        "subject": "={{ $json.subject }}",
+        "emailType": "html",
+        "html": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "a1b2c3d4-0001-4000-8000-000000000003",
+      "name": "Envoyer Email (KSuite)",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [720, 340],
+      "credentials": {
+        "smtp": {
+          "id": "REMPLACER_PAR_ID_CREDENTIAL",
+          "name": "KSuite Infomaniak SMTP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true }) }}",
+        "options": {}
+      },
+      "id": "a1b2c3d4-0001-4000-8000-000000000004",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [960, 340]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Format Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Email": {
+      "main": [
+        [
+          {
+            "node": "Envoyer Email (KSuite)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envoyer Email (KSuite)": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0
+}

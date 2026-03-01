@@ -52,9 +52,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.75 }}
             >
-              <GradientButton href="#contact">Lancer la refonte</GradientButton>
-              <GradientButton href="#projets" variant="ghost">
-                Voir nos cas clients
+              <GradientButton href="#contact">Planifier un échange</GradientButton>
+              <GradientButton href="#contact" variant="ghost">
+                Demander un devis
               </GradientButton>
             </motion.div>
           </div>

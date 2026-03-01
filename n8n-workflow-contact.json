@@ -1,0 +1,108 @@
+{
+  "name": "Synaplink — Nouveau message de contact",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-synaplink",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": false
+        }
+      },
+      "id": "b1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 340],
+      "webhookId": "contact-synaplink"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json.body;\n\nconst html = `\n<div style=\"font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;background:#1a1a2e;border-radius:16px;overflow:hidden;\">\n  <div style=\"background:linear-gradient(135deg,#38bdf8,#7c3aed);padding:32px;text-align:center;\">\n    <h1 style=\"margin:0;font-size:22px;color:white;font-weight:700;\">Nouveau message de contact</h1>\n    <p style=\"margin:8px 0 0;color:rgba(255,255,255,0.8);font-size:13px;\">via synaplink.fr</p>\n  </div>\n  <div style=\"padding:32px;\">\n    <table style=\"width:100%;border-collapse:collapse;\">\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:13px;\">Nom</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;font-weight:600;text-align:right;\">${data.nom}</td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:13px;\">Email</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;font-weight:600;text-align:right;\"><a href=\"mailto:${data.email}\" style=\"color:#38bdf8;text-decoration:none;\">${data.email}</a></td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:#a0a0a0;font-size:13px;\">Objet</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;font-weight:600;text-align:right;\">${data.objet}</td>\n      </tr>\n    </table>\n    <div style=\"margin-top:24px;padding:16px;background:rgba(255,255,255,0.05);border-radius:12px;border:1px solid rgba(255,255,255,0.08);\">\n      <p style=\"margin:0 0 8px;color:#a0a0a0;font-size:13px;\">Message</p>\n      <p style=\"margin:0;color:white;font-size:14px;line-height:1.6;white-space:pre-wrap;\">${data.message}</p>\n    </div>\n    <div style=\"margin-top:24px;padding:12px 16px;background:rgba(56,189,248,0.15);border-radius:10px;border:1px solid rgba(56,189,248,0.25);\">\n      <p style=\"margin:0;color:#7dd3fc;font-size:12px;\">Source: ${data.source || 'site-synaplink'} — ${data.timestamp || new Date().toISOString()}</p>\n    </div>\n  </div>\n</div>\n`;\n\nreturn [{\n  json: {\n    subject: `[Contact] ${data.objet} — ${data.nom}`,\n    html,\n    nom: data.nom,\n    email: data.email,\n    objet: data.objet,\n    message: data.message\n  }\n}];"
+      },
+      "id": "b1b2c3d4-0001-4000-8000-000000000002",
+      "name": "Format Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 340]
+    },
+    {
+      "parameters": {
+        "fromEmail": "info@synaplink.be",
+        "toEmail": "info@synaplink.be",
+        "subject": "={{ $json.subject }}",
+        "emailType": "html",
+        "html": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "b1b2c3d4-0001-4000-8000-000000000003",
+      "name": "Envoyer Email (KSuite)",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [720, 340],
+      "credentials": {
+        "smtp": {
+          "id": "REMPLACER_PAR_ID_CREDENTIAL",
+          "name": "KSuite Infomaniak SMTP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true }) }}",
+        "options": {}
+      },
+      "id": "b1b2c3d4-0001-4000-8000-000000000004",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [960, 340]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Format Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Email": {
+      "main": [
+        [
+          {
+            "node": "Envoyer Email (KSuite)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envoyer Email (KSuite)": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0
+}

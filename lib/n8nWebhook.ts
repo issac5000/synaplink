@@ -1,8 +1,6 @@
-import { DevisFormData } from "./validations";
+import { DevisFormData, ContactFormData } from "./validations";
 
-export async function sendToN8n(data: DevisFormData) {
-  const webhookUrl = process.env.N8N_WEBHOOK_URL;
-
+async function sendWebhook(webhookUrl: string, data: Record<string, unknown>) {
   if (!webhookUrl || webhookUrl.includes("PLACEHOLDER")) {
     console.log("[DEV] Webhook URL not configured, simulating success");
     console.log("[DEV] Payload:", JSON.stringify(data, null, 2));
@@ -26,4 +24,14 @@ export async function sendToN8n(data: DevisFormData) {
   }
 
   return { success: true };
+}
+
+export async function sendToN8n(data: DevisFormData) {
+  const webhookUrl = process.env.N8N_WEBHOOK_URL!;
+  return sendWebhook(webhookUrl, data);
+}
+
+export async function sendContactToN8n(data: ContactFormData) {
+  const webhookUrl = process.env.N8N_CONTACT_WEBHOOK_URL!;
+  return sendWebhook(webhookUrl, data);
 }

@@ -15,10 +15,6 @@ const ScrollProgress = dynamic(
   () => import("@/components/ui/ScrollProgress"),
   { ssr: false }
 );
-const WhatsAppButton = dynamic(
-  () => import("@/components/ui/WhatsAppButton"),
-  { ssr: false }
-);
 const CustomCursor = dynamic(
   () => import("@/components/ui/CustomCursor"),
   { ssr: false }
@@ -40,7 +36,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

@@ -38,3 +38,14 @@ export const delaiOptions = [
   "3 à 6 mois",
   "Pas de contrainte",
 ];
+
+export const contactSchema = z.object({
+  nom: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
+  email: z.string().email("Adresse email invalide"),
+  objet: z.string().min(3, "L'objet doit contenir au moins 3 caractères"),
+  message: z
+    .string()
+    .min(10, "Votre message doit contenir au moins 10 caractères"),
+});
+
+export type ContactFormData = z.infer<typeof contactSchema>;

@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Calendar, CircleCheck, Clock3, ShieldCheck } from "lucide-react";
+import { Mail } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import DevisForm from "@/components/ui/DevisForm";
+import ContactForm from "@/components/ui/ContactForm";
 import GradientButton from "@/components/ui/GradientButton";
 
 const benefits = [
@@ -64,16 +66,30 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="rounded-3xl overflow-hidden bg-white/10 border border-white/10">
-                  <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
-                    <Calendar className="w-12 h-12 text-accent/45 mb-4" />
-                    <p className="text-text-secondary text-sm mb-2">
-                      Appel 30 min ou reunion 45 min via Google Meet
+                <div className="rounded-3xl overflow-hidden bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/[0.08]">
+                  <div className="flex flex-col items-center justify-center py-10 px-6 text-center">
+                    {/* Format options */}
+                    <div className="flex gap-3 w-full mb-8">
+                      <div className="flex-1 rounded-2xl bg-white/[0.04] border border-white/[0.06] p-4 text-center">
+                        <div className="w-10 h-10 rounded-xl bg-accent/12 flex items-center justify-center mx-auto mb-3">
+                          <Clock3 className="w-5 h-5 text-accent" />
+                        </div>
+                        <p className="text-sm font-semibold text-text-primary font-[family-name:var(--font-space-grotesk)]">30 min</p>
+                        <p className="text-[11px] text-text-secondary mt-1">Appel de cadrage</p>
+                      </div>
+                      <div className="flex-1 rounded-2xl bg-white/[0.04] border border-white/[0.06] p-4 text-center">
+                        <div className="w-10 h-10 rounded-xl bg-accent-cyan/12 flex items-center justify-center mx-auto mb-3">
+                          <Calendar className="w-5 h-5 text-accent-cyan" />
+                        </div>
+                        <p className="text-sm font-semibold text-text-primary font-[family-name:var(--font-space-grotesk)]">45 min</p>
+                        <p className="text-[11px] text-text-secondary mt-1">Reunion Google Meet</p>
+                      </div>
+                    </div>
+
+                    <p className="text-text-secondary/50 text-xs mb-6">
+                      Choisissez le format au moment de la reservation
                     </p>
-                    <p className="text-text-secondary/60 text-xs mb-6">
-                      Choisissez le format qui vous convient
-                    </p>
-                    <GradientButton onClick={openCalendly} className="!py-3 !px-6 !text-sm">
+                    <GradientButton onClick={openCalendly} className="!py-3 !px-8 !text-sm w-full sm:w-auto">
                       Reserver un creneau
                     </GradientButton>
                   </div>
@@ -108,6 +124,29 @@ export default function Contact() {
             </GlassCard>
           </motion.div>
         </div>
+
+        <motion.div
+          className="mt-8 lg:mt-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+        >
+          <GlassCard hoverEffect={false}>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-11 h-11 rounded-2xl bg-accent-cyan/12 flex items-center justify-center">
+                <Mail className="w-5 h-5 text-accent-cyan" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold font-[family-name:var(--font-space-grotesk)] text-text-primary">
+                  Envoyez-nous un message
+                </h3>
+                <p className="text-xs text-text-secondary">Une question, une idee ? Ecrivez-nous directement.</p>
+              </div>
+            </div>
+            <ContactForm />
+          </GlassCard>
+        </motion.div>
       </div>
     </section>
   );
