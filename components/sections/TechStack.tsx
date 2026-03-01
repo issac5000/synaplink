@@ -74,13 +74,11 @@ export default function TechStack() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: ci * 0.07 }}
             >
-              {/* Shine effect */}
+              {/* Shine effect on hover */}
               <div
-                className="absolute inset-0 pointer-events-none"
+                className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                 style={{
-                  background: "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.07) 50%, transparent 70%)",
-                  animation: "liquidShine 3.2s ease-in-out infinite",
-                  animationDelay: `${ci * 0.4}s`,
+                  background: "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%)",
                 }}
               />
 

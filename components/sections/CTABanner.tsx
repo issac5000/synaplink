@@ -9,18 +9,17 @@ export default function CTABanner() {
     <section className="relative py-16 lg:py-24 overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
-          className="relative rounded-[32px] border border-white/[0.08] bg-gradient-to-br from-accent/[0.08] via-white/[0.02] to-accent-cyan/[0.06] p-10 sm:p-14 text-center overflow-hidden"
+          className="group relative rounded-[32px] border border-white/[0.08] bg-gradient-to-br from-accent/[0.08] via-white/[0.02] to-accent-cyan/[0.06] p-10 sm:p-14 text-center overflow-hidden"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Shine effect */}
+          {/* Subtle shine */}
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
             style={{
-              background: "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.07) 50%, transparent 70%)",
-              animation: "liquidShine 3.2s ease-in-out infinite",
+              background: "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%)",
             }}
           />
 

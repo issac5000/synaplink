@@ -20,73 +20,65 @@ export default function Hero() {
         <div className="noise-overlay opacity-20" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
-          <div>
-            <motion.h1
-              className="text-[2.6rem] sm:text-5xl lg:text-7xl font-bold font-[family-name:var(--font-space-grotesk)] leading-[1.05] tracking-[-0.005em] mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-            >
-              <span className="text-text-primary">Nous donnons vie</span>
-              <br />
-              <span className="text-text-primary">à vos projets les</span>
-              <br />
-              <span className="gradient-text-animated">plus ambitieux</span>
-            </motion.h1>
-
-            <motion.p
-              className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-2xl leading-relaxed mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
-            >
-              Stratégie, design, développement, IA et automatisation. On transforme vos
-              objectifs business en expériences web qui convertissent vraiment.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.75 }}
-            >
-              <GradientButton href="#contact">Planifier un échange</GradientButton>
-              <GradientButton href="#contact" variant="ghost">
-                Demander un devis
-              </GradientButton>
-            </motion.div>
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 w-full flex flex-col items-center text-center">
+        {/* Logo en haut, réduit */}
+        <motion.div
+          className="-mb-5 sm:-mb-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <div className="relative inline-block">
+            <div className="absolute inset-0 rounded-full opacity-40" style={{ background: "radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, rgba(56, 189, 248, 0.2) 50%, transparent 70%)", filter: "blur(24px)", transform: "scale(1.8)" }} />
+            <Image
+              src="/synaplink-logo.png"
+              alt="Logo Synap'Link"
+              width={200}
+              height={200}
+              unoptimized
+              className="relative w-44 h-44 sm:w-56 sm:h-56 lg:w-72 lg:h-72 object-contain drop-shadow-[0_14px_34px_rgba(0,0,0,0.42)]"
+            />
           </div>
+        </motion.div>
 
-          <motion.div
-            className="rounded-3xl sm:rounded-[56px] relative overflow-hidden perspective-1000"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            whileHover={{ y: -18, scale: 1.05 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-          >
-            <div className="card-3d rounded-2xl sm:rounded-[50px] overflow-hidden border border-white/10 h-[360px] sm:h-[420px] lg:h-[470px] relative shadow-[0_24px_48px_rgba(0,0,0,0.28)] ring-1 ring-white/5 backdrop-blur-sm bg-white/[0.03]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#121212] via-[#2a2a2a] to-[#0b0b0b]" />
-              <div className="absolute inset-0 opacity-35" style={{ background: "radial-gradient(circle at 22% 20%, rgba(255,255,255,0.18), transparent 44%), radial-gradient(circle at 82% 78%, rgba(255,255,255,0.12), transparent 48%)" }} />
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.25) 0.42px, transparent 0.42px)", backgroundSize: "3px 3px" }} />
-              <div className="relative z-10 h-full w-full flex items-center justify-center p-3 sm:p-4">
-                <Image
-                  src="/synaplink-logo.png"
-                  alt="Logo Synap'Link"
-                  width={760}
-                  height={760}
-                  unoptimized
-                  className="w-full max-w-[520px] lg:max-w-[620px] h-auto object-contain mix-blend-screen drop-shadow-[0_14px_34px_rgba(0,0,0,0.42)]"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        <motion.h1
+          className="text-[2.7rem] sm:text-[3.4rem] lg:text-[4.5rem] font-bold font-[family-name:var(--font-space-grotesk)] leading-[1.05] tracking-[-0.005em] mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+        >
+          <span className="text-text-primary">Nous donnons vie</span>
+          <br />
+          <span className="text-text-primary">à vos projets les</span>
+          <br />
+          <span className="gradient-text-animated">plus ambitieux</span>
+        </motion.h1>
+
+        <motion.p
+          className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-2xl leading-relaxed mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+        >
+          Stratégie, design, développement, IA et automatisation. On transforme vos
+          objectifs business en expériences web qui convertissent vraiment.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col sm:flex-row items-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.75 }}
+        >
+          <GradientButton href="#contact">Planifier un échange</GradientButton>
+          <GradientButton href="#contact" variant="ghost">
+            Demander un devis
+          </GradientButton>
+        </motion.div>
 
         <motion.a
           href="#stats"
-          className="mt-10 lg:mt-6 inline-flex items-center gap-2 text-text-secondary hover:text-accent transition-colors"
+          className="mt-12 inline-flex items-center gap-2 text-text-secondary hover:text-accent transition-colors"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
