@@ -31,7 +31,7 @@ export default function Statement() {
   ];
 
   return (
-    <section className="relative py-28 sm:py-36 lg:py-44 overflow-hidden">
+    <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
       {/* Atmospheric glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[120px] bg-accent/[0.07] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[400px] h-[200px] rounded-full blur-[100px] bg-accent-cyan/[0.05] pointer-events-none" />

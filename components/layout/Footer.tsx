@@ -89,14 +89,14 @@ export default function Footer() {
 
           <div className="mt-8 pt-7 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs text-text-secondary">
-              &copy; {new Date().getFullYear()} Synap&apos;Link. Tous droits reserves.
+              &copy; {new Date().getFullYear()} Synap&apos;Link. Tous droits réservés.
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-xs text-text-secondary hover:text-text-primary transition-colors">
-                Mentions legales
+                Mentions légales
               </a>
               <a href="#" className="text-xs text-text-secondary hover:text-text-primary transition-colors">
-                Politique de confidentialite
+                Politique de confidentialité
               </a>
             </div>
           </div>

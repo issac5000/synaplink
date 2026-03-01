@@ -53,10 +53,10 @@ export default function ContactForm() {
           <CheckCircle2 className="w-12 h-12 text-green-400 mb-4" />
         </motion.div>
         <h3 className="text-xl font-bold font-[family-name:var(--font-space-grotesk)] text-text-primary mb-2">
-          Message envoye !
+          Message envoyé !
         </h3>
         <p className="text-text-secondary text-sm">
-          Nous vous repondons sous 24h.
+          Nous vous répondons sous 24h.
         </p>
       </motion.div>
     );

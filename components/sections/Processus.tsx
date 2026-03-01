@@ -15,13 +15,13 @@ const steps = [
     icon: PenTool,
     number: "02",
     title: "Direction",
-    description: "UI forte, architecture claire et priorites produit.",
+    description: "UI forte, architecture claire et priorités produit.",
   },
   {
     icon: Code2,
     number: "03",
     title: "Build sprint",
-    description: "Developpement iteratif avec demos concretes chaque semaine.",
+    description: "Développement itératif avec démos concrètes chaque semaine.",
   },
   {
     icon: Rocket,
@@ -33,7 +33,7 @@ const steps = [
 
 export default function Processus() {
   return (
-    <section id="processus" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="processus" className="relative py-16 lg:py-24 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="absolute inset-x-4 sm:inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <motion.div
@@ -46,7 +46,7 @@ export default function Processus() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] tracking-[-0.005em] mb-4">
             Un parcours simple,
             <br />
-            un <span className="gradient-text-animated">resultat</span> net
+            un <span className="gradient-text-animated">résultat</span> net
           </h2>
         </motion.div>
 

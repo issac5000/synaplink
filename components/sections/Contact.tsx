@@ -9,9 +9,9 @@ import ContactForm from "@/components/ui/ContactForm";
 import GradientButton from "@/components/ui/GradientButton";
 
 const benefits = [
-  { icon: Clock3, text: "Reponse sous 24h" },
+  { icon: Clock3, text: "Réponse sous 24h" },
   { icon: CircleCheck, text: "Appel sans engagement" },
-  { icon: ShieldCheck, text: "Devis detaille offert" },
+  { icon: ShieldCheck, text: "Devis détaillé offert" },
 ];
 
 export default function Contact() {
@@ -26,7 +26,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="contact" className="relative py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-14"
@@ -35,12 +35,12 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="section-kicker mb-5">Derniere etape</div>
+          <div className="section-kicker mb-5">Dernière étape</div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-space-grotesk)] tracking-[-0.005em] mb-4">
             Parlons de votre <span className="gradient-text-animated">projet</span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
-            Appel strategique ou devis direct: choisissez le format le plus simple pour vous.
+            Appel stratégique ou devis direct : choisissez le format le plus simple pour vous.
           </p>
         </motion.div>
 
@@ -60,9 +60,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-text-primary">
-                      Reserve un appel de cadrage
+                      Réservez un appel de cadrage
                     </p>
-                    <p className="text-xs text-text-secondary">30 minutes pour valider le plan d action</p>
+                    <p className="text-xs text-text-secondary">30 minutes pour valider le plan d'action</p>
                   </div>
                 </div>
 
@@ -82,15 +82,15 @@ export default function Contact() {
                           <Calendar className="w-5 h-5 text-accent-cyan" />
                         </div>
                         <p className="text-sm font-semibold text-text-primary font-[family-name:var(--font-space-grotesk)]">45 min</p>
-                        <p className="text-[11px] text-text-secondary mt-1">Reunion Google Meet</p>
+                        <p className="text-[11px] text-text-secondary mt-1">Réunion Google Meet</p>
                       </div>
                     </div>
 
                     <p className="text-text-secondary/50 text-xs mb-6">
-                      Choisissez le format au moment de la reservation
+                      Choisissez le format au moment de la réservation
                     </p>
                     <GradientButton onClick={openCalendly} className="!py-3 !px-8 !text-sm w-full sm:w-auto">
-                      Reserver un creneau
+                      Réserver un créneau
                     </GradientButton>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ export default function Contact() {
                 <h3 className="text-lg font-semibold font-[family-name:var(--font-space-grotesk)] text-text-primary">
                   Envoyez-nous un message
                 </h3>
-                <p className="text-xs text-text-secondary">Une question, une idee ? Ecrivez-nous directement.</p>
+                <p className="text-xs text-text-secondary">Une question, une idée ? Écrivez-nous directement.</p>
               </div>
             </div>
             <ContactForm />

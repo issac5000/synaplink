@@ -29,11 +29,11 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
             >
-              <span className="text-text-primary">Votre idee.</span>
+              <span className="text-text-primary">Votre idée.</span>
               <br />
               <span className="gradient-text-animated">Notre produit.</span>
               <br />
-              <span className="text-text-primary">Vos resultats.</span>
+              <span className="text-text-primary">Vos résultats.</span>
             </motion.h1>
 
             <motion.p
@@ -42,8 +42,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55 }}
             >
-              Strategy, design, developpement, IA et automatisation. On transforme vos
-              objectifs business en experiences web qui convertissent vraiment.
+              Stratégie, design, développement, IA et automatisation. On transforme vos
+              objectifs business en expériences web qui convertissent vraiment.
             </motion.p>
 
             <motion.div

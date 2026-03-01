@@ -13,12 +13,12 @@ const services = [
   {
     icon: Bot,
     title: "Agents IA & chatbots",
-    description: "Assistants connectes a tes outils metier pour gagner du temps.",
+    description: "Assistants connectés à tes outils métier pour gagner du temps.",
   },
   {
     icon: Workflow,
     title: "Automatisation workflows",
-    description: "Stack n8n/Make/API pour supprimer les taches repetitives.",
+    description: "Stack n8n/API pour supprimer les tâches répétitives.",
   },
   {
     icon: Megaphone,
@@ -33,13 +33,13 @@ const services = [
   {
     icon: Lightbulb,
     title: "Conseil produit",
-    description: "Roadmap, priorites, choix techniques et cadrage execution.",
+    description: "Roadmap, priorités, choix techniques et cadrage exécution.",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-24 lg:py-32">
+    <section id="services" className="relative py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-14"
@@ -138,7 +138,7 @@ export default function Services() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.3 }}
                   >
-                    <p className="text-[9px] text-white/40 uppercase tracking-wider mb-2.5 font-[family-name:var(--font-jetbrains-mono)]">Activite</p>
+                    <p className="text-[9px] text-white/40 uppercase tracking-wider mb-2.5 font-[family-name:var(--font-jetbrains-mono)]">Activité</p>
                     <div className="flex items-end gap-[5px] h-[50px]">
                       {[35, 55, 40, 70, 50, 85, 65, 90, 75, 60, 80, 95].map((h, i) => (
                         <motion.div
@@ -251,7 +251,7 @@ export default function Services() {
                     </div>
                     <div className="space-y-2">
                       {[
-                        { name: "Sarah M.", msg: "Super resultats ce mois !", time: "2min" },
+                        { name: "Sarah M.", msg: "Super résultats ce mois !", time: "2min" },
                         { name: "Karim D.", msg: "Le dashboard est top", time: "15min" },
                         { name: "Lea P.", msg: "On peut ajouter un filtre ?", time: "1h" },
                       ].map((m, i) => (

@@ -54,7 +54,7 @@ export default function Projets() {
   return (
     <section
       id="projets"
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative py-16 lg:py-24 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}

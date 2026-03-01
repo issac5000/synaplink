@@ -9,6 +9,7 @@ import Statement from "@/components/sections/Statement";
 import Projets from "@/components/sections/Projets";
 import Processus from "@/components/sections/Processus";
 import Contact from "@/components/sections/Contact";
+import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/layout/Footer";
 
 const ScrollProgress = dynamic(
@@ -34,6 +35,7 @@ export default function Home() {
         <Projets />
         <Processus />
         <Contact />
+        <FAQ />
       </main>
       <Footer />
     </>
