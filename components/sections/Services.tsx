@@ -281,7 +281,7 @@ export default function Services() {
                 src="/iphone-frame.png"
                 alt="iPhone mockup"
                 fill
-                className="absolute inset-0 z-50 pointer-events-none select-none object-contain drop-shadow-2xl"
+                className="absolute inset-0 z-10 pointer-events-none select-none object-contain drop-shadow-2xl"
               />
             </div>
           </motion.div>
