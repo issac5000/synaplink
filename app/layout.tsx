@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Synap'Link — Agence IA & Numérique Francophone",
+  title: "Synap'Link — Agence IA & Numérique",
   description:
     "Développement web & app, agents IA, automatisation et marketing digital pour entrepreneurs et entreprises francophones. De l'idée au produit fini.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL("https://synaplink.be"),
   openGraph: {
-    title: "Synap'Link — Agence IA & Numérique Francophone",
+    title: "Synap'Link — Agence IA & Numérique",
     description:
       "Développement web & app, agents IA, automatisation et marketing digital. De l'idée au produit fini.",
     type: "website",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Synap'Link — Agence IA & Numérique Francophone",
+    title: "Synap'Link — Agence IA & Numérique",
     description:
       "Développement web & app, agents IA, automatisation et marketing digital.",
     images: ["/logomarket.png"],
