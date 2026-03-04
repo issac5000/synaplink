@@ -471,15 +471,24 @@ export default function Chatbot() {
             <filter id="fluid-distortion">
               <feTurbulence
                 type="fractalNoise"
-                baseFrequency="0.015 0.018"
+                baseFrequency="0.012 0.014"
                 numOctaves={3}
                 seed={2}
                 result="noise"
-              />
+              >
+                <animate
+                  attributeName="baseFrequency"
+                  values="0.012 0.014;0.016 0.02;0.01 0.016;0.014 0.012;0.012 0.014"
+                  dur="8s"
+                  repeatCount="indefinite"
+                  calcMode="spline"
+                  keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"
+                />
+              </feTurbulence>
               <feDisplacementMap
                 in="SourceGraphic"
                 in2="noise"
-                scale={22}
+                scale={26}
                 xChannelSelector="R"
                 yChannelSelector="G"
               />
@@ -506,13 +515,14 @@ export default function Chatbot() {
         >
           {/* Fluid background */}
           <div
-            className="absolute inset-[-12px] rounded-full"
+            className="absolute inset-[-16px] rounded-full"
             style={{ filter: "url(#fluid-distortion)" }}
           >
-            <div className="absolute inset-0 bg-[#1a0a2e]" />
+            <div className="absolute inset-0 bg-[#0a0412]" />
             <div className="absolute inset-0 fluid-blob-1" />
             <div className="absolute inset-0 fluid-blob-2" />
             <div className="absolute inset-0 fluid-blob-3" />
+            <div className="absolute inset-0 fluid-blob-dark" />
           </div>
           {/* Rotating shadow overlay */}
           <div

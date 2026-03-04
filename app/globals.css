@@ -366,50 +366,64 @@ body {
 
 /* Chatbot fluid sphere blobs */
 .fluid-blob-1 {
-  background: radial-gradient(circle at 30% 40%, #7c3aed 0%, transparent 60%);
-  animation: fluidMove1 12s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: radial-gradient(circle at 30% 40%, #7c3aed 0%, transparent 45%);
+  animation: fluidMove1 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .fluid-blob-2 {
-  background: radial-gradient(circle at 70% 60%, #38bdf8 0%, transparent 55%);
-  animation: fluidMove2 16s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: radial-gradient(circle at 70% 60%, #38bdf8 0%, transparent 40%);
+  animation: fluidMove2 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .fluid-blob-3 {
-  background: radial-gradient(circle at 50% 30%, #a855f7 0%, transparent 50%);
-  animation: fluidMove3 14s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: radial-gradient(circle at 50% 30%, #a855f7 0%, transparent 38%);
+  animation: fluidMove3 9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.fluid-blob-dark {
+  background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 30%, transparent 55%);
+  animation: fluidMoveDark 10s ease-in-out infinite;
 }
 
 @keyframes fluidMove1 {
   0% { transform: translate(0%, 0%) scale(1); }
-  10% { transform: translate(6%, -4%) scale(1.03); }
-  25% { transform: translate(12%, -8%) scale(1.07); }
-  40% { transform: translate(4%, 6%) scale(1.02); }
-  55% { transform: translate(-8%, 10%) scale(0.96); }
-  70% { transform: translate(-12%, 2%) scale(1.04); }
-  85% { transform: translate(-4%, -6%) scale(0.98); }
+  10% { transform: translate(14%, -10%) scale(1.1); }
+  25% { transform: translate(28%, -18%) scale(1.2); }
+  40% { transform: translate(10%, 16%) scale(1.05); }
+  55% { transform: translate(-20%, 24%) scale(0.9); }
+  70% { transform: translate(-28%, 6%) scale(1.15); }
+  85% { transform: translate(-10%, -14%) scale(0.95); }
   100% { transform: translate(0%, 0%) scale(1); }
 }
 
 @keyframes fluidMove2 {
   0% { transform: translate(0%, 0%) scale(1); }
-  12% { transform: translate(-5%, 6%) scale(1.04); }
-  28% { transform: translate(-10%, 10%) scale(1.06); }
-  42% { transform: translate(2%, 12%) scale(0.97); }
-  58% { transform: translate(12%, -4%) scale(0.94); }
-  72% { transform: translate(8%, -10%) scale(1.05); }
-  88% { transform: translate(3%, -4%) scale(1.02); }
+  12% { transform: translate(-14%, 16%) scale(1.12); }
+  28% { transform: translate(-24%, 24%) scale(1.18); }
+  42% { transform: translate(6%, 28%) scale(0.88); }
+  58% { transform: translate(28%, -10%) scale(0.85); }
+  72% { transform: translate(20%, -24%) scale(1.15); }
+  88% { transform: translate(8%, -10%) scale(1.05); }
   100% { transform: translate(0%, 0%) scale(1); }
 }
 
 @keyframes fluidMove3 {
   0% { transform: translate(0%, 0%) rotate(0deg) scale(1); }
-  15% { transform: translate(4%, 5%) rotate(25deg) scale(1.05); }
-  30% { transform: translate(8%, 10%) rotate(55deg) scale(1.08); }
-  50% { transform: translate(-4%, 8%) rotate(120deg) scale(0.95); }
-  65% { transform: translate(-10%, -2%) rotate(180deg) scale(1.03); }
-  80% { transform: translate(-5%, -7%) rotate(280deg) scale(0.97); }
+  15% { transform: translate(10%, 14%) rotate(30deg) scale(1.15); }
+  30% { transform: translate(20%, 24%) rotate(70deg) scale(1.22); }
+  50% { transform: translate(-10%, 20%) rotate(140deg) scale(0.88); }
+  65% { transform: translate(-24%, -6%) rotate(210deg) scale(1.1); }
+  80% { transform: translate(-12%, -18%) rotate(300deg) scale(0.92); }
   100% { transform: translate(0%, 0%) rotate(360deg) scale(1); }
+}
+
+@keyframes fluidMoveDark {
+  0% { transform: translate(-20%, -15%) scale(0.9); }
+  20% { transform: translate(8%, -22%) scale(1.05); }
+  40% { transform: translate(25%, 5%) scale(0.95); }
+  60% { transform: translate(10%, 25%) scale(1.08); }
+  80% { transform: translate(-18%, 15%) scale(0.92); }
+  100% { transform: translate(-20%, -15%) scale(0.9); }
 }
 
 .fluid-shadow-rotate {
