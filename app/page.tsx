@@ -4,7 +4,8 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Partners from "@/components/sections/Partners";
-import Stats from "@/components/sections/Stats";
+// import Stats from "@/components/sections/Stats";
+import AboutUs from "@/components/sections/AboutUs";
 import Services from "@/components/sections/Services";
 import WhyUs from "@/components/sections/WhyUs";
 import Statement from "@/components/sections/Statement";
@@ -48,7 +49,8 @@ export default function Home() {
       <main>
         <Hero />
         <Partners />
-        <Stats />
+        {/* <Stats /> */}
+        <AboutUs />
         <Services />
         <WhyUs />
         <Statement />

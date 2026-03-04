@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -12,8 +13,29 @@ const ParticlesBackground = dynamic(
 );
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Chaque élément descend et disparaît à des vitesses différentes
+  const logoY = useTransform(scrollYProgress, [0, 0.85], [0, 180]);
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  const titleY = useTransform(scrollYProgress, [0, 0.9], [0, 220]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  const descY = useTransform(scrollYProgress, [0, 0.95], [0, 260]);
+  const descOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const ctaY = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const ctaOpacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
+
+  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-10">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-10">
       <div className="absolute inset-0">
         <Image
           src="/hero.jpeg"
@@ -37,6 +59,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9, filter: "blur(12px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 3.6, ease: "easeOut" }}
+          style={{ y: logoY, opacity: logoOpacity }}
         >
           <div className="relative inline-block">
             <div className="absolute inset-0 rounded-full opacity-40" style={{ background: "radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, rgba(56, 189, 248, 0.2) 50%, transparent 70%)", filter: "blur(24px)", transform: "scale(1.8)" }} />
@@ -56,6 +79,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 3.9, ease: "easeOut" }}
+          style={{ y: titleY, opacity: titleOpacity }}
         >
           <span className="text-text-primary">Nous donnons vie</span>
           <br />
@@ -69,6 +93,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 4.2, ease: "easeOut" }}
+          style={{ y: descY, opacity: descOpacity }}
         >
           Stratégie, design, développement, IA et automatisation. On transforme vos
           objectifs business en expériences web qui convertissent vraiment.
@@ -79,6 +104,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 4.5, ease: "easeOut" }}
+          style={{ y: ctaY, opacity: ctaOpacity }}
         >
           <GradientButton href="#contact">Planifier un échange</GradientButton>
           <GradientButton href="#contact" variant="ghost">
@@ -92,6 +118,7 @@ export default function Hero() {
           initial={{ opacity: 0, filter: "blur(8px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 4.8, ease: "easeOut" }}
+          style={{ opacity: scrollIndicatorOpacity }}
           aria-label="Defiler vers le bas"
         >
           <motion.div
