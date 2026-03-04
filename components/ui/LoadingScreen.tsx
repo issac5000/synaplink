@@ -22,8 +22,7 @@ export default function LoadingScreen() {
 
   return (
     <AnimatePresence>
-      {phase !== "done" && (
-        <div className="fixed inset-0 z-[9999] pointer-events-none">
+      <div className="fixed inset-0 z-[9999] pointer-events-none">
           {/* Bande haut */}
           <motion.div
             className="absolute top-0 left-0 w-full h-1/2 bg-background"
@@ -69,7 +68,6 @@ export default function LoadingScreen() {
             </motion.div>
           </motion.div>
         </div>
-      )}
     </AnimatePresence>
   );
 }
