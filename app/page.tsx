@@ -54,7 +54,7 @@ export default function Home() {
         <Services />
         <WhyUs />
         <Statement />
-        <TechStack />
+        {/* <TechStack /> */}
         <Projets />
         <Processus />
         <CTABanner />
