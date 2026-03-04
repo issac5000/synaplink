@@ -23,6 +23,9 @@ export default function Hero() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-background/60" />
+        <div className="sm:hidden">
+          <ParticlesBackground />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background" />
         <div className="noise-overlay opacity-20" />
       </div>
