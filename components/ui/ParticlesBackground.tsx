@@ -10,7 +10,7 @@ interface Particle {
   radius: number;
 }
 
-export default function ParticlesBackground() {
+export default function ParticlesBackground({ fixed = false }: { fixed?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>(0);
 
@@ -54,9 +54,9 @@ export default function ParticlesBackground() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < 135) {
-            const opacity = (1 - dist / 135) * 0.7;
+            const opacity = (1 - dist / 135) * 0.4;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.5})`;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.3})`;
             ctx.lineWidth = 0.7;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -69,9 +69,9 @@ export default function ParticlesBackground() {
         const mdy = particles[i].y - mouse.y;
         const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
         if (mDist < 200) {
-          const opacity = (1 - mDist / 200) * 0.5;
+          const opacity = (1 - mDist / 200) * 0.3;
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.6})`;
+          ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.35})`;
           ctx.lineWidth = 0.6;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouse.x, mouse.y);
@@ -83,7 +83,7 @@ export default function ParticlesBackground() {
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${0.85 + p.radius * 0.1})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${0.45 + p.radius * 0.05})`;
         ctx.fill();
 
         // Soft glow
@@ -93,7 +93,7 @@ export default function ParticlesBackground() {
           p.x, p.y, 0,
           p.x, p.y, p.radius * 3
         );
-        gradient.addColorStop(0, "rgba(255, 255, 255, 0.25)");
+        gradient.addColorStop(0, "rgba(255, 255, 255, 0.12)");
         gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
         ctx.fillStyle = gradient;
         ctx.fill();
@@ -164,7 +164,7 @@ export default function ParticlesBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full"
+      className={`${fixed ? "fixed" : "absolute"} inset-0 w-full h-full pointer-events-none`}
       style={{ opacity: 1 }}
     />
   );

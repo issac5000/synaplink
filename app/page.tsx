@@ -27,10 +27,20 @@ const CustomCursor = dynamic(
 const Chatbot = dynamic(() => import("@/components/ui/Chatbot"), {
   ssr: false,
 });
+const LoadingScreen = dynamic(
+  () => import("@/components/ui/LoadingScreen"),
+  { ssr: false }
+);
+const ParticlesBackground = dynamic(
+  () => import("@/components/ui/ParticlesBackground"),
+  { ssr: false }
+);
 
 export default function Home() {
   return (
     <>
+      <LoadingScreen />
+      <ParticlesBackground fixed />
       <CustomCursor />
       <ScrollProgress />
       <Chatbot />

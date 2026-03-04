@@ -332,3 +332,34 @@ body {
   border-radius: 4px;
   font-size: 0.9em;
 }
+
+/* Loading screen spinners */
+.loading-spinner-outer {
+  border: 2px solid transparent;
+  border-top: 2px solid #7c3aed;
+  border-right: 2px solid #38bdf8;
+  animation: spinOuter 1.4s cubic-bezier(0.6, 0.15, 0.35, 0.85) infinite;
+  box-shadow:
+    0 0 15px rgba(124, 58, 237, 0.2),
+    inset 0 0 15px rgba(56, 189, 248, 0.1);
+}
+
+.loading-spinner-inner {
+  border: 2px solid transparent;
+  border-bottom: 2px solid #a855f7;
+  border-left: 2px solid #7c3aed;
+  animation: spinInner 1s cubic-bezier(0.6, 0.15, 0.35, 0.85) infinite;
+  box-shadow:
+    0 0 12px rgba(168, 85, 247, 0.2),
+    inset 0 0 12px rgba(124, 58, 237, 0.1);
+}
+
+@keyframes spinOuter {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinInner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}

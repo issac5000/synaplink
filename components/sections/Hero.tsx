@@ -15,8 +15,15 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-10">
       <div className="absolute inset-0">
-        <ParticlesBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/30" />
+        <Image
+          src="/hero.jpeg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background" />
         <div className="noise-overlay opacity-20" />
       </div>
 
@@ -24,9 +31,9 @@ export default function Hero() {
         {/* Logo en haut, réduit */}
         <motion.div
           className="-mb-5 sm:-mb-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          initial={{ opacity: 0, scale: 0.9, filter: "blur(12px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.9, delay: 3.6, ease: "easeOut" }}
         >
           <div className="relative inline-block">
             <div className="absolute inset-0 rounded-full opacity-40" style={{ background: "radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, rgba(56, 189, 248, 0.2) 50%, transparent 70%)", filter: "blur(24px)", transform: "scale(1.8)" }} />
@@ -43,9 +50,9 @@ export default function Hero() {
 
         <motion.h1
           className="text-[2.35rem] sm:text-[3.4rem] lg:text-[4.5rem] font-bold font-[family-name:var(--font-space-grotesk)] leading-[1.05] tracking-[-0.005em] mb-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 3.9, ease: "easeOut" }}
         >
           <span className="text-text-primary">Nous donnons vie</span>
           <br />
@@ -56,9 +63,9 @@ export default function Hero() {
 
         <motion.p
           className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-2xl leading-relaxed mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 4.2, ease: "easeOut" }}
         >
           Stratégie, design, développement, IA et automatisation. On transforme vos
           objectifs business en expériences web qui convertissent vraiment.
@@ -66,9 +73,9 @@ export default function Hero() {
 
         <motion.div
           className="flex flex-col sm:flex-row items-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.75 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 4.5, ease: "easeOut" }}
         >
           <GradientButton href="#contact">Planifier un échange</GradientButton>
           <GradientButton href="#contact" variant="ghost">
@@ -79,9 +86,9 @@ export default function Hero() {
         <motion.a
           href="#stats"
           className="mt-12 inline-flex items-center gap-2 text-text-secondary hover:text-accent transition-colors"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
+          initial={{ opacity: 0, filter: "blur(8px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 4.8, ease: "easeOut" }}
           aria-label="Defiler vers le bas"
         >
           <motion.div
