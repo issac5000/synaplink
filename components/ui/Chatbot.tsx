@@ -169,14 +169,33 @@ export default function Chatbot() {
               "radial-gradient(circle, rgba(124, 58, 237, 0.45) 0%, rgba(56, 189, 248, 0.2) 50%, transparent 70%)",
           }}
         />
+        {/* SVG filter for fluid distortion */}
+        <svg className="absolute w-0 h-0" aria-hidden="true">
+          <defs>
+            <filter id="fluid-distortion">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.015 0.018"
+                numOctaves={3}
+                seed={2}
+                result="noise"
+              />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="noise"
+                scale={22}
+                xChannelSelector="R"
+                yChannelSelector="G"
+              />
+            </filter>
+          </defs>
+        </svg>
         <motion.button
           onClick={() => setIsOpen((prev) => !prev)}
-          className="relative w-[68px] h-[68px] rounded-full flex items-center justify-center"
+          className="relative w-[68px] h-[68px] rounded-full flex items-center justify-center overflow-hidden"
           style={{
-            background:
-              "radial-gradient(circle at 35% 30%, #a78bfa 0%, #7c3aed 30%, #5b21b6 60%, #38bdf8 100%)",
             boxShadow:
-              "inset -4px -6px 12px rgba(0,0,0,0.35), inset 3px 3px 8px rgba(255,255,255,0.15)",
+              "inset -4px -6px 12px rgba(0,0,0,0.35), inset 3px 3px 8px rgba(255,255,255,0.15), 0 0 20px rgba(124,58,237,0.3)",
           }}
           animate={{
             scale: isOpen ? 1 : [1, 1.18, 1],
@@ -189,10 +208,35 @@ export default function Chatbot() {
           whileTap={{ scale: 0.9 }}
           aria-label={isOpen ? "Fermer le chat" : "Ouvrir le chat"}
         >
+          {/* Fluid background */}
+          <div
+            className="absolute inset-[-12px] rounded-full"
+            style={{ filter: "url(#fluid-distortion)" }}
+          >
+            <div className="absolute inset-0 bg-[#1a0a2e]" />
+            <div className="absolute inset-0 fluid-blob-1" />
+            <div className="absolute inset-0 fluid-blob-2" />
+            <div className="absolute inset-0 fluid-blob-3" />
+          </div>
+          {/* Rotating shadow overlay */}
+          <div
+            className="absolute inset-0 rounded-full pointer-events-none fluid-shadow-rotate"
+            style={{
+              background: "radial-gradient(circle at 65% 70%, rgba(0,0,0,0.5) 0%, transparent 55%)",
+            }}
+          />
+          {/* Glass sheen overlay */}
+          <div
+            className="absolute inset-0 rounded-full pointer-events-none fluid-sheen-rotate"
+            style={{
+              background: "radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.18) 0%, transparent 45%)",
+            }}
+          />
         <AnimatePresence mode="wait">
           {isOpen && (
             <motion.div
               key="close"
+              className="relative z-10"
               initial={{ rotate: -90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
